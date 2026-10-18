@@ -1,116 +1,150 @@
-from collections import deque
-from time import monotonic, sleep
-from urllib.parse import urldefrag, urljoin, urlsplit, urlunsplit
+import os
+import json
+import time
+from datetime import datetime
+from urllib.parse import urljoin, urlparse, urldefrag
 from urllib.robotparser import RobotFileParser
-
+from collections import deque
 import requests
 from bs4 import BeautifulSoup
 
 
-base_url = "https://bulbapedia.bulbagarden.net/wiki/Main_Page"
-user_agent = "WIRGroupCrawler/1.0"
-
-base_parts = urlsplit(base_url)
-allowed_netloc = base_parts.netloc
-
-session = requests.Session()
-session.headers.update({"User-Agent": user_agent})
-
-robots_url = urlunsplit(
-    (base_parts.scheme, base_parts.netloc, "/robots.txt", "", "")
-)
-
-robots_response = session.get(robots_url, timeout=30)
-robots_response.raise_for_status()
-
-robots = RobotFileParser()
-robots.set_url(robots_url)
-robots.parse(robots_response.text.splitlines())
-
-crawl_delay = robots.crawl_delay(user_agent)
-if crawl_delay is None:
-    crawl_delay = robots.crawl_delay("*")
-if crawl_delay is None:
-    crawl_delay = 0
-
-visited_urls = set()
-urls_to_visit = deque([base_url])
-last_request_time = 0.0
-
-
-def normalize_url(url):
-    """Remove fragments and normalize the URL before queueing it."""
-    url, _fragment = urldefrag(url)
-    parts = urlsplit(url)
-
-    if parts.scheme not in {"http", "https"}:
-        return None
-
-    if parts.netloc != allowed_netloc:
-        return None
-
-    return urlunsplit(
-        (
-            parts.scheme,
-            parts.netloc,
-            parts.path or "/",
-            parts.query,
-            "",
-        )
-    )
-
-
-def wait_for_crawl_delay():
-    global last_request_time
-
-    elapsed = monotonic() - last_request_time
-    if elapsed < crawl_delay:
-        sleep(crawl_delay - elapsed)
-
-    last_request_time = monotonic()
-
-
-def crawl_page(url):
-    if not robots.can_fetch(user_agent, url):
-        print(f"Skipped by robots.txt: {url}")
-        return []
-
-    wait_for_crawl_delay()
+def setup_robot_parser(base_url: str, user_agent: str) -> RobotFileParser:
+    """Fetch and parse the robots.txt file for politeness checking."""
+    robots_url = urljoin(base_url, "/robots.txt")
+    headers = {"User-Agent": user_agent}
+    robot_parser = RobotFileParser()
 
     try:
-        response = session.get(url, timeout=30)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as error:
-        print(f"Error crawling {url}: {error}")
-        return []
+        response = requests.get(robots_url, headers=headers, timeout=10)
+        if response.status_code == 200:
+            robot_parser.parse(response.text.splitlines())
+            print(f"[robots.txt] Successfully loaded from {robots_url}")
+        else:
+            print(f"[robots.txt] Could not retrieve (Status: {response.status_code}). Assuming allowed.")
+    except Exception as e:
+        print(f"[robots.txt] Error fetching robots.txt: {e}. Assuming allowed.")
 
-    soup = BeautifulSoup(response.content, "html.parser")
-    links = []
-
-    for link in soup.find_all("a", href=True):
-        next_url = normalize_url(urljoin(url, link["href"]))
-
-        if (
-            next_url is not None
-            and next_url not in visited_urls
-            and next_url not in urls_to_visit
-            and robots.can_fetch(user_agent, next_url)
-        ):
-            links.append(next_url)
-
-    return links
+    return robot_parser
 
 
-while urls_to_visit:
-    current_url = urls_to_visit.popleft()
+def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawled_documents"):
+    """
+    Crawls pages starting from seed_url within the same domain until
+    at least `target_count` pages are collected or the queue is exhausted.
+    """
+    user_agent = "StandardPythonCrawler/1.0"
+    headers = {"User-Agent": user_agent}
 
-    if current_url in visited_urls:
-        continue
+    # Derive base domain and scheme
+    parsed_seed = urlparse(seed_url)
+    allowed_netloc = parsed_seed.netloc
+    base_url = f"{parsed_seed.scheme}://{allowed_netloc}"
 
-    visited_urls.add(current_url)
-    print(f"Crawling: {current_url}")
+    # Setup robots.txt
+    robot_parser = setup_robot_parser(base_url, user_agent)
 
-    new_links = crawl_page(current_url)
-    urls_to_visit.extend(new_links)
+    # Prepare document output folder
+    os.makedirs(output_dir, exist_ok=True)
 
-print("Crawling finished.")
+    # Crawler state
+    queue = deque([seed_url])
+    visited = set()
+    records = []
+    doc_id_counter = 1
+
+    # Ignored extensions for web documents
+    ignored_extensions = (
+        ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
+        ".pdf", ".zip", ".tar", ".gz", ".mp3", ".mp4", ".css", ".js"
+    )
+
+    print(f"\nStarting crawler on domain: {allowed_netloc}")
+    print(f"Goal: Collect at least {target_count} documents.\n" + "-" * 50)
+
+    while queue and doc_id_counter <= target_count:
+        current_url = queue.popleft()
+
+        # Remove URL anchors/fragments (e.g. #cite_note-1)
+        current_url, _ = urldefrag(current_url)
+
+        if current_url in visited:
+            continue
+        visited.add(current_url)
+
+        # Check robots.txt permissions
+        if not robot_parser.can_fetch(user_agent, current_url):
+            print(f"[-] Blocked by robots.txt: {current_url}")
+            continue
+
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        status_code = None
+        collected = "No"
+
+        try:
+            # Respectful request interval
+            time.sleep(0.5)
+
+            response = requests.get(current_url, headers=headers, timeout=10)
+            status_code = response.status_code
+
+            # Only process successful HTML responses
+            content_type = response.headers.get("Content-Type", "")
+            if status_code == 200 and "text/html" in content_type:
+                # 1. Save document content locally
+                filename = os.path.join(output_dir, f"doc_{doc_id_counter:03d}.html")
+                with open(filename, "w", encoding="utf-8") as f:
+                    f.write(response.text)
+
+                collected = "Yes"
+                print(f"[+] [{doc_id_counter}/{target_count}] Collected: {current_url}")
+
+                # 2. Extract internal links to expand crawler queue
+                soup = BeautifulSoup(response.text, "html.parser")
+                for link in soup.find_all("a", href=True):
+                    href = link["href"].strip()
+                    # Resolve relative URLs
+                    full_url = urljoin(current_url, href)
+                    full_url, _ = urldefrag(full_url)
+                    parsed_link = urlparse(full_url)
+
+                    # Domain constraint and filter non-document links
+                    if (
+                        parsed_link.netloc == allowed_netloc
+                        and full_url not in visited
+                        and not any(parsed_link.path.lower().endswith(ext) for ext in ignored_extensions)
+                        and not full_url.endswith("/Special:Random")  # Avoid non-deterministic redirect loops
+                    ):
+                        queue.append(full_url)
+
+        except requests.RequestException as e:
+            print(f"[!] Request error fetching {current_url}: {e}")
+            status_code = "RequestError"
+
+        # Record metadata for this URL
+        records.append({
+            "Document_ID": f"DOC_{doc_id_counter:03d}" if collected == "Yes" else "N/A",
+            "Source_URL": current_url,
+            "Status": status_code,
+            "Crawled_Date": timestamp,
+            "Document_Collected(Yes or no)": collected
+        })
+
+        if collected == "Yes":
+            doc_id_counter += 1
+
+    # Save metadata log into JSON format
+    json_output_path = "crawl_results.json"
+    with open(json_output_path, "w", encoding="utf-8") as json_file:
+        json.dump(records, json_file, indent=4, ensure_ascii=False)
+
+    print("-" * 50)
+    print(f"Crawl completed!")
+    print(f"Total documents successfully collected: {doc_id_counter - 1}")
+    print(f"HTML documents saved in: '{output_dir}/'")
+    print(f"Crawl summary saved in: '{json_output_path}'")
+
+
+if __name__ == "__main__":
+    seed_url = "https://minecraft.wiki/"
+    crawl_domain(seed_url=seed_url, target_count=50)
