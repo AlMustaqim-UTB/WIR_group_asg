@@ -1,352 +1,507 @@
 [
     {
         "Document_ID": "DOC_001",
-        "Source_URL": "https://minecraft.wiki/",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:22",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Block",
+        "Crawled_Date": "2026-10-19 11:34:40"
     },
     {
         "Document_ID": "DOC_002",
-        "Source_URL": "https://minecraft.wiki/w/Dungeons:Wiki",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:23",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Minecraft_Wiki:Protected_pages",
+        "Crawled_Date": "2026-10-19 11:34:41"
     },
     {
         "Document_ID": "DOC_003",
-        "Source_URL": "https://minecraft.wiki/w/Movie:Wiki",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:24",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Block_(disambiguation)",
+        "Crawled_Date": "2026-10-19 11:34:42"
     },
     {
         "Document_ID": "DOC_004",
-        "Source_URL": "https://minecraft.wiki/w/Legends:Wiki",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:25",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Music_Disc_blocks",
+        "Crawled_Date": "2026-10-19 11:34:43"
     },
     {
         "Document_ID": "DOC_005",
-        "Source_URL": "https://minecraft.wiki/w/Story_Mode:Wiki",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:25",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Category:Blocks",
+        "Crawled_Date": "2026-10-19 11:34:44"
     },
     {
         "Document_ID": "DOC_006",
-        "Source_URL": "https://minecraft.wiki/w/Earth:Wiki",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:26",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Minecraft",
+        "Crawled_Date": "2026-10-19 11:34:44"
     },
     {
         "Document_ID": "DOC_007",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Wiki:About",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:27",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sand",
+        "Crawled_Date": "2026-10-19 11:34:45"
     },
     {
         "Document_ID": "DOC_008",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_(franchise)",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:28",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Cut_sandstone",
+        "Crawled_Date": "2026-10-19 11:34:46"
     },
     {
         "Document_ID": "DOC_009",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Wiki:How_to_help",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:28",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Slab",
+        "Crawled_Date": "2026-10-19 11:34:47"
     },
     {
         "Document_ID": "DOC_010",
-        "Source_URL": "https://minecraft.wiki/w/Wilderness_Bound",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:29",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Snow",
+        "Crawled_Date": "2026-10-19 11:34:48"
     },
     {
         "Document_ID": "DOC_011",
-        "Source_URL": "https://minecraft.wiki/w/Dappled_Forest",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:30",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Ladder",
+        "Crawled_Date": "2026-10-19 11:34:50"
     },
     {
         "Document_ID": "DOC_012",
-        "Source_URL": "https://minecraft.wiki/w/Abandoned_Camp",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:31",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Vine",
+        "Crawled_Date": "2026-10-19 11:34:51"
     },
     {
         "Document_ID": "DOC_013",
-        "Source_URL": "https://minecraft.wiki/w/Straw_Bed",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:34",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Stairs",
+        "Crawled_Date": "2026-10-19 11:34:52"
     },
     {
         "Document_ID": "DOC_014",
-        "Source_URL": "https://minecraft.wiki/w/Cushion",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:35",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Turtle_egg",
+        "Crawled_Date": "2026-10-19 11:34:53"
     },
     {
         "Document_ID": "DOC_015",
-        "Source_URL": "https://minecraft.wiki/w/Fourth_Drop_2026",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:36",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sea_pickle",
+        "Crawled_Date": "2026-10-19 11:34:53"
     },
     {
         "Document_ID": "DOC_016",
-        "Source_URL": "https://minecraft.wiki/w/Ice_Caves",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:37",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Fluid",
+        "Crawled_Date": "2026-10-19 11:34:54"
     },
     {
         "Document_ID": "DOC_017",
-        "Source_URL": "https://minecraft.wiki/w/Frostbite",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:38",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Dirt",
+        "Crawled_Date": "2026-10-19 11:34:56"
     },
     {
         "Document_ID": "DOC_018",
-        "Source_URL": "https://minecraft.wiki/w/Ice_Ball",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:39",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sandstone",
+        "Crawled_Date": "2026-10-19 11:34:57"
     },
     {
         "Document_ID": "DOC_019",
-        "Source_URL": "https://minecraft.wiki/w/Icicle",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:40",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Opaque",
+        "Crawled_Date": "2026-10-19 11:34:58"
     },
     {
         "Document_ID": "DOC_020",
-        "Source_URL": "https://minecraft.wiki/w/Ice_Crystal",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:41",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Glass",
+        "Crawled_Date": "2026-10-19 11:34:58"
     },
     {
         "Document_ID": "DOC_021",
-        "Source_URL": "https://minecraft.wiki/w/Java_Edition",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:42",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Flower",
+        "Crawled_Date": "2026-10-19 11:34:59"
     },
     {
         "Document_ID": "DOC_022",
-        "Source_URL": "https://minecraft.wiki/w/Java_Edition_26.3",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:43",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Opacity",
+        "Crawled_Date": "2026-10-19 11:35:00"
     },
     {
         "Document_ID": "DOC_023",
-        "Source_URL": "https://minecraft.wiki/w/Java_Edition_26.4_Snapshot_4",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:44",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Explosion",
+        "Crawled_Date": "2026-10-19 11:35:01"
     },
     {
         "Document_ID": "DOC_024",
-        "Source_URL": "https://minecraft.wiki/w/Java_Edition_26.4",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:45",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Air",
+        "Crawled_Date": "2026-10-19 11:35:02"
     },
     {
         "Document_ID": "DOC_025",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:46",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Java_Edition",
+        "Crawled_Date": "2026-10-19 11:35:03"
     },
     {
         "Document_ID": "DOC_026",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition_26.52",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:47",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Cave_air",
+        "Crawled_Date": "2026-10-19 11:35:04"
     },
     {
         "Document_ID": "DOC_027",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition_Preview_26.70.20",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:48",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Void_air",
+        "Crawled_Date": "2026-10-19 11:35:05"
     },
     {
         "Document_ID": "DOC_028",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition_26.70",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:49",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sea_lantern",
+        "Crawled_Date": "2026-10-19 11:35:06"
     },
     {
         "Document_ID": "DOC_029",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Education",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:49",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Glowstone",
+        "Crawled_Date": "2026-10-19 11:35:06"
     },
     {
         "Document_ID": "DOC_030",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Education_26.32",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:50",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Light",
+        "Crawled_Date": "2026-10-19 11:35:07"
     },
     {
         "Document_ID": "DOC_031",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Education_Preview_26.30.0",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:51",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Red_sand",
+        "Crawled_Date": "2026-10-19 11:35:08"
     },
     {
         "Document_ID": "DOC_032",
-        "Source_URL": "https://minecraft.wiki/w/Minecraft_Launcher",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:52",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Gravel",
+        "Crawled_Date": "2026-10-19 11:35:09"
     },
     {
         "Document_ID": "DOC_033",
-        "Source_URL": "https://minecraft.wiki/w/Launcher_3.41.29",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:53",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Anvil",
+        "Crawled_Date": "2026-10-19 11:35:10"
     },
     {
         "Document_ID": "DOC_034",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Editor",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:54",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Dragon_egg",
+        "Crawled_Date": "2026-10-19 11:35:11"
     },
     {
         "Document_ID": "DOC_035",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Editor_26.50",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:55",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Concrete_powder",
+        "Crawled_Date": "2026-10-19 11:35:12"
     },
     {
         "Document_ID": "DOC_036",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Editor_26.70.20",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:56",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Scaffolding",
+        "Crawled_Date": "2026-10-19 11:35:14"
     },
     {
         "Document_ID": "DOC_037",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Dedicated_Server",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:56",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition",
+        "Crawled_Date": "2026-10-19 11:35:14"
     },
     {
         "Document_ID": "DOC_038",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Dedicated_Server_1.26.52.3",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:57",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Pointed_dripstone",
+        "Crawled_Date": "2026-10-19 11:35:15"
     },
     {
         "Document_ID": "DOC_039",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Dedicated_Server_1.26.70.20",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:58",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sulfur_spike",
+        "Crawled_Date": "2026-10-19 11:35:16"
     },
     {
         "Document_ID": "DOC_040",
-        "Source_URL": "https://minecraft.wiki/w/Bedrock_Edition_beta_26.70.20",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:33:59",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Icicle",
+        "Crawled_Date": "2026-10-19 11:35:17"
     },
     {
         "Document_ID": "DOC_041",
-        "Source_URL": "https://minecraft.wiki/w/Trading",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:00",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Fourth_Drop_2026",
+        "Crawled_Date": "2026-10-19 11:35:18"
     },
     {
         "Document_ID": "DOC_042",
-        "Source_URL": "https://minecraft.wiki/w/Brewing",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:01",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Suspicious_sand",
+        "Crawled_Date": "2026-10-19 11:35:19"
     },
     {
         "Document_ID": "DOC_043",
-        "Source_URL": "https://minecraft.wiki/w/Enchantment",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:02",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Suspicious_gravel",
+        "Crawled_Date": "2026-10-19 11:35:20"
     },
     {
         "Document_ID": "DOC_044",
-        "Source_URL": "https://minecraft.wiki/w/Mob",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:03",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Falling_Block",
+        "Crawled_Date": "2026-10-19 11:35:21"
     },
     {
         "Document_ID": "DOC_045",
-        "Source_URL": "https://minecraft.wiki/w/Block",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:04",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Sound",
+        "Crawled_Date": "2026-10-19 11:35:22"
     },
     {
         "Document_ID": "DOC_046",
-        "Source_URL": "https://minecraft.wiki/w/Item",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:05",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Particle",
+        "Crawled_Date": "2026-10-19 11:35:23"
     },
     {
         "Document_ID": "DOC_047",
-        "Source_URL": "https://minecraft.wiki/w/Biome",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:07",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Leaves",
+        "Crawled_Date": "2026-10-19 11:35:24"
     },
     {
         "Document_ID": "DOC_048",
-        "Source_URL": "https://minecraft.wiki/w/Effect",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:08",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Solid_block",
+        "Crawled_Date": "2026-10-19 11:35:25"
     },
     {
         "Document_ID": "DOC_049",
-        "Source_URL": "https://minecraft.wiki/w/Crafting",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:09",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/Textures",
+        "Crawled_Date": "2026-10-19 11:35:26"
     },
     {
         "Document_ID": "DOC_050",
-        "Source_URL": "https://minecraft.wiki/w/Smelting",
-        "Status": 200,
-        "Crawled_Date": "2026-10-18 12:34:11",
-        "Document_Collected(Yes or no)": "Yes"
+        "Source_URL": "https://minecraft.wiki/w/List_of_block_textures",
+        "Crawled_Date": "2026-10-19 11:35:27"
+    },
+    {
+        "Document_ID": "DOC_051",
+        "Source_URL": "https://minecraft.wiki/w/Water",
+        "Crawled_Date": "2026-10-19 11:35:28"
+    },
+    {
+        "Document_ID": "DOC_052",
+        "Source_URL": "https://minecraft.wiki/w/Lava",
+        "Crawled_Date": "2026-10-19 11:35:29"
+    },
+    {
+        "Document_ID": "DOC_053",
+        "Source_URL": "https://minecraft.wiki/w/Fire",
+        "Crawled_Date": "2026-10-19 11:35:30"
+    },
+    {
+        "Document_ID": "DOC_054",
+        "Source_URL": "https://minecraft.wiki/w/Nether_Portal_(block)",
+        "Crawled_Date": "2026-10-19 11:35:31"
+    },
+    {
+        "Document_ID": "DOC_055",
+        "Source_URL": "https://minecraft.wiki/w/Prismarine",
+        "Crawled_Date": "2026-10-19 11:35:32"
+    },
+    {
+        "Document_ID": "DOC_056",
+        "Source_URL": "https://minecraft.wiki/w/Starfield",
+        "Crawled_Date": "2026-10-19 11:35:33"
+    },
+    {
+        "Document_ID": "DOC_057",
+        "Source_URL": "https://minecraft.wiki/w/End_Portal_(block)",
+        "Crawled_Date": "2026-10-19 11:35:33"
+    },
+    {
+        "Document_ID": "DOC_058",
+        "Source_URL": "https://minecraft.wiki/w/End_Gateway_(block)",
+        "Crawled_Date": "2026-10-19 11:35:34"
+    },
+    {
+        "Document_ID": "DOC_059",
+        "Source_URL": "https://minecraft.wiki/w/Vibrant_Visuals",
+        "Crawled_Date": "2026-10-19 11:35:35"
+    },
+    {
+        "Document_ID": "DOC_060",
+        "Source_URL": "https://minecraft.wiki/w/Ray_tracing",
+        "Crawled_Date": "2026-10-19 11:35:36"
+    },
+    {
+        "Document_ID": "DOC_061",
+        "Source_URL": "https://minecraft.wiki/w/Resolution",
+        "Crawled_Date": "2026-10-19 11:35:37"
+    },
+    {
+        "Document_ID": "DOC_062",
+        "Source_URL": "https://minecraft.wiki/w/Animation",
+        "Crawled_Date": "2026-10-19 11:35:38"
+    },
+    {
+        "Document_ID": "DOC_063",
+        "Source_URL": "https://minecraft.wiki/w/Model",
+        "Crawled_Date": "2026-10-19 11:35:39"
+    },
+    {
+        "Document_ID": "N/A",
+        "Source_URL": "https://minecraft.wiki/w/List_of_blocks?redirect=no",
+        "Crawl_Date": "2026-10-19 11:35:39"
+    },
+    {
+        "Document_ID": "DOC_064",
+        "Source_URL": "https://minecraft.wiki/w/Talk:Block",
+        "Crawled_Date": "2026-10-19 11:35:39"
+    },
+    {
+        "Document_ID": "DOC_065",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Button",
+        "Crawled_Date": "2026-10-19 11:35:40"
+    },
+    {
+        "Document_ID": "DOC_066",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Door",
+        "Crawled_Date": "2026-10-19 11:35:41"
+    },
+    {
+        "Document_ID": "DOC_067",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Fence",
+        "Crawled_Date": "2026-10-19 11:35:42"
+    },
+    {
+        "Document_ID": "DOC_068",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Fence_Gate",
+        "Crawled_Date": "2026-10-19 11:35:43"
+    },
+    {
+        "Document_ID": "DOC_069",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Hanging_Sign",
+        "Crawled_Date": "2026-10-19 11:35:44"
+    },
+    {
+        "Document_ID": "DOC_070",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Leaves",
+        "Crawled_Date": "2026-10-19 11:35:45"
+    },
+    {
+        "Document_ID": "DOC_071",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Log",
+        "Crawled_Date": "2026-10-19 11:35:46"
+    },
+    {
+        "Document_ID": "DOC_072",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Planks",
+        "Crawled_Date": "2026-10-19 11:35:47"
+    },
+    {
+        "Document_ID": "DOC_073",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Pressure_Plate",
+        "Crawled_Date": "2026-10-19 11:35:49"
+    },
+    {
+        "Document_ID": "DOC_074",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Sapling",
+        "Crawled_Date": "2026-10-19 11:35:50"
+    },
+    {
+        "Document_ID": "DOC_075",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Shelf",
+        "Crawled_Date": "2026-10-19 11:35:51"
+    },
+    {
+        "Document_ID": "DOC_076",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Sign",
+        "Crawled_Date": "2026-10-19 11:35:52"
+    },
+    {
+        "Document_ID": "DOC_077",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Slab",
+        "Crawled_Date": "2026-10-19 11:35:53"
+    },
+    {
+        "Document_ID": "DOC_078",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Stairs",
+        "Crawled_Date": "2026-10-19 11:35:54"
+    },
+    {
+        "Document_ID": "DOC_079",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Trapdoor",
+        "Crawled_Date": "2026-10-19 11:35:55"
+    },
+    {
+        "Document_ID": "DOC_080",
+        "Source_URL": "https://minecraft.wiki/w/Acacia_Wood",
+        "Crawled_Date": "2026-10-19 11:35:56"
+    },
+    {
+        "Document_ID": "DOC_081",
+        "Source_URL": "https://minecraft.wiki/w/Activator_Rail",
+        "Crawled_Date": "2026-10-19 11:35:57"
+    },
+    {
+        "Document_ID": "DOC_082",
+        "Source_URL": "https://minecraft.wiki/w/Allium",
+        "Crawled_Date": "2026-10-19 11:35:58"
+    },
+    {
+        "Document_ID": "DOC_083",
+        "Source_URL": "https://minecraft.wiki/w/Allow",
+        "Crawled_Date": "2026-10-19 11:35:59"
+    },
+    {
+        "Document_ID": "DOC_084",
+        "Source_URL": "https://minecraft.wiki/w/Amethyst_Cluster",
+        "Crawled_Date": "2026-10-19 11:36:00"
+    },
+    {
+        "Document_ID": "DOC_085",
+        "Source_URL": "https://minecraft.wiki/w/Ancient_Debris",
+        "Crawled_Date": "2026-10-19 11:36:01"
+    },
+    {
+        "Document_ID": "DOC_086",
+        "Source_URL": "https://minecraft.wiki/w/Andesite",
+        "Crawled_Date": "2026-10-19 11:36:02"
+    },
+    {
+        "Document_ID": "DOC_087",
+        "Source_URL": "https://minecraft.wiki/w/Andesite_Slab",
+        "Crawled_Date": "2026-10-19 11:36:03"
+    },
+    {
+        "Document_ID": "DOC_088",
+        "Source_URL": "https://minecraft.wiki/w/Andesite_Stairs",
+        "Crawled_Date": "2026-10-19 11:36:04"
+    },
+    {
+        "Document_ID": "DOC_089",
+        "Source_URL": "https://minecraft.wiki/w/Andesite_Wall",
+        "Crawled_Date": "2026-10-19 11:36:05"
+    },
+    {
+        "Document_ID": "DOC_090",
+        "Source_URL": "https://minecraft.wiki/w/Azalea",
+        "Crawled_Date": "2026-10-19 11:36:06"
+    },
+    {
+        "Document_ID": "DOC_091",
+        "Source_URL": "https://minecraft.wiki/w/Azalea_Leaves",
+        "Crawled_Date": "2026-10-19 11:36:06"
+    },
+    {
+        "Document_ID": "DOC_092",
+        "Source_URL": "https://minecraft.wiki/w/Azure_Bluet",
+        "Crawled_Date": "2026-10-19 11:36:07"
+    },
+    {
+        "Document_ID": "DOC_093",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo",
+        "Crawled_Date": "2026-10-19 11:36:08"
+    },
+    {
+        "Document_ID": "DOC_094",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Button",
+        "Crawled_Date": "2026-10-19 11:36:09"
+    },
+    {
+        "Document_ID": "DOC_095",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Door",
+        "Crawled_Date": "2026-10-19 11:36:10"
+    },
+    {
+        "Document_ID": "DOC_096",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Fence",
+        "Crawled_Date": "2026-10-19 11:36:12"
+    },
+    {
+        "Document_ID": "DOC_097",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Fence_Gate",
+        "Crawled_Date": "2026-10-19 11:36:13"
+    },
+    {
+        "Document_ID": "DOC_098",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Hanging_Sign",
+        "Crawled_Date": "2026-10-19 11:36:14"
+    },
+    {
+        "Document_ID": "DOC_099",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Mosaic",
+        "Crawled_Date": "2026-10-19 11:36:15"
+    },
+    {
+        "Document_ID": "DOC_100",
+        "Source_URL": "https://minecraft.wiki/w/Bamboo_Mosaic_Slab",
+        "Crawled_Date": "2026-10-19 11:36:16"
     }
 ]
