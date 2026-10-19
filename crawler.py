@@ -8,7 +8,7 @@ from collections import deque
 import requests
 from bs4 import BeautifulSoup
 
-
+# testing
 def setup_robot_parser(base_url: str, user_agent: str) -> RobotFileParser:
     """Fetch and parse the robots.txt file for politeness checking."""
     robots_url = urljoin(base_url, "/robots.txt")
