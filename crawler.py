@@ -60,7 +60,6 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
     )
 
     print(f"\nStarting crawler on domain: {allowed_netloc}")
-    print(f"Goal: Collect at least {target_count} documents.\n" + "-" * 50)
 
     while queue and doc_id_counter <= target_count:
         current_url = queue.popleft()
@@ -127,7 +126,7 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
             "Source_URL": current_url,
             "Status": status_code,
             "Crawled_Date": timestamp,
-            "Document_Collected(Yes or no)": collected
+            "Document_Collected": collected
         })
 
         if collected == "Yes":
@@ -138,7 +137,7 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
     with open(json_output_path, "w", encoding="utf-8") as json_file:
         json.dump(records, json_file, indent=4, ensure_ascii=False)
 
-    print("-" * 50)
+    print("-" * 100)
     print(f"Crawl completed!")
     print(f"Total documents successfully collected: {doc_id_counter - 1}")
     print(f"HTML documents saved in: '{output_dir}/'")
@@ -147,4 +146,4 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
 
 if __name__ == "__main__":
     seed_url = "https://minecraft.wiki/"
-    crawl_domain(seed_url=seed_url, target_count=50)
+    crawl_domain(seed_url=seed_url, target_count=100)
