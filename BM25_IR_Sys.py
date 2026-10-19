@@ -7,7 +7,6 @@ No external dependencies required (uses standard library only).
 """
 
 from collections import Counter, defaultdict  
-from html.parser import HTMLParser
 import math  
 import re  
 import json  
@@ -27,124 +26,23 @@ def load_stop_words():
 # Global variable storing stop words for reuse across the program
 STOP_WORDS = load_stop_words()
 
-class ArticleTextParser(HTMLParser):
-    """Extract visible text from the main article content of an HTML page."""
-
-    CONTENT_ID = "mw-content-text"
-    IGNORED_TAGS = {"script", "style", "noscript", "template", "svg"}
-    BLOCK_TAGS = {
-        "article",
-        "br",
-        "div",
-        "figcaption",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6",
-        "li",
-        "p",
-        "section",
-        "table",
-        "tr",
-    }
-
-    def __init__(self) -> None:
-        super().__init__(convert_charrefs=True)
-        self.parts: list[str] = []
-        self.content_depth = 0
-        self.ignored_depth = 0
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attributes = dict(attrs)
-
-        if self.content_depth == 0 and (
-            tag == "div" and attributes.get("id") == self.CONTENT_ID
-        ):
-            self.content_depth = 1
-            return
-
-        if self.content_depth == 0:
-            return
-
-        if tag in self.IGNORED_TAGS:
-            self.ignored_depth += 1
-            return
-
-        if self.ignored_depth == 0 and tag in self.BLOCK_TAGS:
-            self.parts.append("\n")
-
-    def handle_startendtag(
-        self, tag: str, attrs: list[tuple[str, str | None]]
-    ) -> None:
-        if self.content_depth > 0 and self.ignored_depth == 0 and tag in self.BLOCK_TAGS:
-            self.parts.append("\n")
-
-    def handle_endtag(self, tag: str) -> None:
-        if self.content_depth == 0:
-            return
-
-        if tag in self.IGNORED_TAGS and self.ignored_depth > 0:
-            self.ignored_depth -= 1
-            return
-
-        if self.ignored_depth == 0 and tag in self.BLOCK_TAGS:
-            self.parts.append("\n")
-
-        if tag == "div" and self.content_depth == 1:
-            self.content_depth = 0
-
-    def handle_data(self, data: str) -> None:
-        if self.content_depth > 0 and self.ignored_depth == 0:
-            text = " ".join(data.split())
-            if text:
-                self.parts.append(text)
-
-    def get_text(self) -> str:
-        return re.sub(r"\s+", " ", " ".join(self.parts)).strip()
-
-
-def extract_html_text(html: str) -> str:
-    """Extract searchable article text from one crawled HTML document."""
-    parser = ArticleTextParser()
-    parser.feed(html)
-    parser.close()
-    return parser.get_text()
-
 def load_corpus() -> dict[str, str]:
     """
-    Loads and extracts searchable text from HTML files in crawled_documents.
+    Loads the document corpus from a JSON file.
     """
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    documents_dir = os.path.join(script_dir, "crawled_documents")
+    script_dir = os.path.dirname(os.path.abspath(__file__))  # Get current script directory
+    corpus_path = os.path.join(script_dir, "doc_corpus.json")  # Construct file path
 
-    if not os.path.isdir(documents_dir):
-        raise FileNotFoundError(
-            f"Crawled documents directory was not found: {documents_dir}"
-        )
+    with open(corpus_path, "r", encoding="utf-8") as file:
+        corpus = json.load(file)
 
-    corpus: dict[str, str] = {}
-
-    for filename in sorted(os.listdir(documents_dir)):
-        if not filename.lower().endswith((".html", ".htm")):
-            continue
-
-        document_path = os.path.join(documents_dir, filename)
-
-        with open(document_path, "r", encoding="utf-8") as file:
-            text = extract_html_text(file.read())
-
-        if not text:
-            print(f"Skipping {filename}: no searchable article text found.")
-            continue
-
-        document_id = os.path.splitext(filename)[0]
-        corpus[document_id] = text
-
-    if not corpus:
+    # Validate that corpus is a dictionary with string keys and string values
+    if not isinstance(corpus, dict) or not all(
+        isinstance(doc_id, str) and isinstance(text, str)
+        for doc_id, text in corpus.items()
+    ):
         raise ValueError(
-            f"No HTML documents were found in {documents_dir}"
+            "doc_corpus.json must contain an object mapping document IDs to text."
         )
 
     return corpus
@@ -249,7 +147,17 @@ class BM25Index:
         # Sort documents by descending BM25 score and keep only top_k
         ranked = sorted(scores.items(), key=lambda item: item[1], reverse=True)[:top_k]
 
-        return ranked
+        # Build result list with document ID, score, and snippet
+        results = []
+        for doc_id, score in ranked:
+            snippet = self._generate_snippet(self.corpus[doc_id], query_terms)  # Extract snippet around query terms
+            results.append((doc_id, score, snippet))
+
+        return results
+
+    def _generate_snippet(self, text: str, query_terms: list[str] = None) -> str:
+        #Generates a snippet/preview of the document for display in search results.
+        return text.strip()  
 
 
 # MAIN PROGRAM 
@@ -259,11 +167,13 @@ if __name__ == "__main__":
     sample_corpus = load_corpus()
 
     test_queries = [
-    ("Q1", "minecraft game java"),
-    ("Q2", "smelting iron crafting the item"),
-    ("Q3", "mob enemy skeleton and ender dragon"),
-
-]
+        "boolean index logic",  
+        "retrieval-augmented generation question answering",  
+        "visual recognition photo search",  
+        "systematic literature survey classic search assessment", 
+        "learning models",  
+        "quick brown fox dog"  
+    ]
 
     index = BM25Index(k1=1.2, b=0.75)
     
@@ -272,18 +182,18 @@ if __name__ == "__main__":
     index.fit(sample_corpus)
 
     # Execute each test query and display results
-    for query_index, query in test_queries:
-        print("-" * 80)
-        print(f"QUERY INDEX: {query_index}")
-        print(f"QUERY      : '{query}'")
+    for query in test_queries:
+        print("-" * 80)  
+        print(f"QUERY: '{query}'")
         print("-" * 80)
 
-        # Search for top 10 most relevant documents
-        results = index.search(query, top_k=10)
-
+        # Search for top 3 most relevant documents
+        results = index.search(query, top_k=3)
+        
         # Display ranked results
-        for rank, (doc_id, score) in enumerate(results, start=1):
+        for rank, (doc_id, score, snippet) in enumerate(results, start=1):
             print(f"Rank {rank}:")
-            print(f"  Doc ID  : {doc_id}")
-            print(f"  Score   : {score:.4f}")
-        print()
+            print(f"  Doc ID  : {doc_id}") 
+            print(f"  Score   : {score:.4f}") 
+            print(f"  Snippet : {snippet}") 
+        print() 

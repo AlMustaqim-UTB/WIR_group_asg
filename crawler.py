@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 def setup_robot_parser(base_url: str, user_agent: str) -> RobotFileParser:
     """Fetch and parse the robots.txt file for politeness checking."""
-    robots_url = urljoin(base_url, "/robots.txt")
+    robots_url = (urljoin(base_url, "/robots.txt"))
     headers = {"User-Agent": user_agent}
     robot_parser = RobotFileParser()
 
@@ -145,5 +145,5 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
 
 
 if __name__ == "__main__":
-    seed_url = "https://minecraft.wiki/"
+    seed_url = "https://minecraft.wiki/w/Block"
     crawl_domain(seed_url=seed_url, target_count=100)
