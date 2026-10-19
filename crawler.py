@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 # testing
 def setup_robot_parser(base_url: str, user_agent: str) -> RobotFileParser:
     """Fetch and parse the robots.txt file for politeness checking."""
-    robots_url = urljoin(base_url, "/robots.txt")
+    robots_url = (urljoin(base_url, "/robots.txt"))
     headers = {"User-Agent": user_agent}
     robot_parser = RobotFileParser()
 
@@ -60,24 +60,28 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
     )
 
     print(f"\nStarting crawler on domain: {allowed_netloc}")
-    print(f"Goal: Collect at least {target_count} documents.\n" + "-" * 50)
 
     while queue and doc_id_counter <= target_count:
         current_url = queue.popleft()
 
         # Remove URL anchors/fragments (e.g. #cite_note-1)
         current_url, _ = urldefrag(current_url)
-
         if current_url in visited:
             continue
         visited.add(current_url)
 
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
         # Check robots.txt permissions
         if not robot_parser.can_fetch(user_agent, current_url):
             print(f"[-] Blocked by robots.txt: {current_url}")
+            records.append({
+                "Document_ID": "N/A",
+                "Source_URL": current_url,
+                "Crawl_Date": timestamp,
+            })
             continue
 
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         status_code = None
         collected = "No"
 
@@ -125,9 +129,7 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
         records.append({
             "Document_ID": f"DOC_{doc_id_counter:03d}" if collected == "Yes" else "N/A",
             "Source_URL": current_url,
-            "Status": status_code,
             "Crawled_Date": timestamp,
-            "Document_Collected(Yes or no)": collected
         })
 
         if collected == "Yes":
@@ -138,7 +140,7 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
     with open(json_output_path, "w", encoding="utf-8") as json_file:
         json.dump(records, json_file, indent=4, ensure_ascii=False)
 
-    print("-" * 50)
+    print("-" * 100)
     print(f"Crawl completed!")
     print(f"Total documents successfully collected: {doc_id_counter - 1}")
     print(f"HTML documents saved in: '{output_dir}/'")
@@ -146,5 +148,5 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
 
 
 if __name__ == "__main__":
-    seed_url = "https://minecraft.wiki/"
-    crawl_domain(seed_url=seed_url, target_count=50)
+    seed_url = "https://minecraft.wiki/w/Block"
+    crawl_domain(seed_url=seed_url, target_count=100)
