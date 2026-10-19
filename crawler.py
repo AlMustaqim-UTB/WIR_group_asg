@@ -66,17 +66,22 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
 
         # Remove URL anchors/fragments (e.g. #cite_note-1)
         current_url, _ = urldefrag(current_url)
-
         if current_url in visited:
             continue
         visited.add(current_url)
 
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
         # Check robots.txt permissions
         if not robot_parser.can_fetch(user_agent, current_url):
             print(f"[-] Blocked by robots.txt: {current_url}")
+            records.append({
+                "Document_ID": "N/A",
+                "Source_URL": current_url,
+                "Crawl_Date": timestamp,
+            })
             continue
 
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         status_code = None
         collected = "No"
 
@@ -124,9 +129,7 @@ def crawl_domain(seed_url: str, target_count: int = 50, output_dir: str = "crawl
         records.append({
             "Document_ID": f"DOC_{doc_id_counter:03d}" if collected == "Yes" else "N/A",
             "Source_URL": current_url,
-            "Status": status_code,
             "Crawled_Date": timestamp,
-            "Document_Collected": collected
         })
 
         if collected == "Yes":
